@@ -54,6 +54,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+
+
     @Override
     public int getItemCount() {
         return bookList.size();

@@ -37,8 +37,14 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
+        View itemView;
+        if(viewType == 1) {
+         itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.mhs_list, parent, false);
+    }else{
+         itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_list, parent, false);
+    }
 
         return new MyViewHolder(itemView);
     }
@@ -50,6 +56,16 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         holder.nik.setText((mhs.getNik()));
         holder.tanggal.setText(mhs.getTglLahir());
      //   Picasso.get().load(mhs.getImage()).into(holder.image);
+
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+    if(position %2 == 0){
+        return 1;
+    }else{
+        return 2;
+    }
 
     }
 
